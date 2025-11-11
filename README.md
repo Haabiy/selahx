@@ -1,9 +1,22 @@
 # selahx
 
-Remote Access Tool — Fast and lightweight CLI experience.
+[![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+**Remote Access Tool** — Fast and lightweight CLI experience.
+
+---
 
 ## Features
+
 ![Asset/selahx.png](Asset/selahx.png)
+
+- Launch a server and clients with minimal setup  
+- Automatic reverse SSH tunneling  
+- Transfer files from EC2 to local machine  
+- Lightweight and dependency-managed with Poetry  
+
+---
 
 ## Usage
 
@@ -13,9 +26,9 @@ Start the server on a specific host and port:
 
 ```bash
 selahx server --key-file key.pem --port 1221 --ssh-host ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com
-```
+````
 
-Options:
+**Options:**
 
 * `--key-file` — Path to the SSH private key
 * `--port` — Local port for the server
@@ -31,7 +44,7 @@ Start a client and connect to the server:
 selahx client --username user --port 1221
 ```
 
-Options:
+**Options:**
 
 * `--username` — Username for the client session
 * `--port` — Server port to connect to
@@ -40,20 +53,21 @@ Options:
 
 ### Transfer files from EC2 to Local
 
-Start saving files.
+Start saving files:
 
 ```bash
 selahx save --key-file key.pem --user ubuntu --host ec2-xx-xx-xx-xx.compute-1.amazonaws.com --dest ~/Downloads/test
 ```
 
-Options:
+**Options:**
 
 * `--key-file` — Path to the SSH private key
-* `--user` — `ubuntu` is the user in this case `ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com`
-* `--host` — starts from @ i.e `ec2-xx-xx-xx-xx.compute-1.amazonaws.com`
-* `--dest` — destination
-* `~/Downloads/test` — set your destination path
+* `--user` — `ubuntu` (user for `ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com`)
+* `--host` — EC2 host (everything after `@`)
+* `--dest` — Destination folder
+* `~/Downloads/test` — Example local destination path
 
+---
 
 ## Example Workflow
 
@@ -71,8 +85,11 @@ selahx client --username user --port 1221
 
 Once connected, a reverse SSH tunnel is automatically established.
 
+---
 
 ## Requirements
 
 * Python 3.8+
 * Dependencies are managed via Poetry (see `pyproject.toml`)
+
+---

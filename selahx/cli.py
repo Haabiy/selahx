@@ -1,7 +1,7 @@
 import typer
 from .server import server_cli
 from .client import client_cli
-from .copy_ec2 import copy_ec2
+from .save_files import copy_ec2
 
 # Main CLI app
 app = typer.Typer(

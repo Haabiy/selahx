@@ -6,7 +6,13 @@ authors = [
     {name = "Abiy",email = "abiy.dema@gmail.com"}
 ]
 license = "MIT"
+include = [
+    { path = "Assets/selahx.png", format = "file" }
+]
 readme = "README.md"
+homepage = "https://github.com/Haabiy/selahx"
+repository = "https://github.com/Haabiy/selahx"
+documentation = "https://github.com/Haabiy/selahx#readme"
 packages = [{ include = "selahx" }]
 requires-python = ">=3.8,<4.0"
 dependencies = [
