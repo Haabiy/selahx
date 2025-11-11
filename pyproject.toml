@@ -1,6 +1,6 @@
 [project]
 name = "selahx"
-version = "0.1.0"
+version = "0.1.1"
 description = "Remote Access Tool — Fast and lightweight CLI experience."
 authors = [
     {name = "Abiy",email = "abiy.dema@gmail.com"}
