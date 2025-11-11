@@ -2,14 +2,13 @@
 
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-**Remote Access Tool** — Fast and lightweight CLI experience.
-
 ---
 
 ## Features
 
-![Asset/selahx.png](Asset/selahx.png)
+## Features
+
+![selahx logo](https://github.com/Haabiy/selahx/blob/main/Asset/selahx.png)
 
 - Launch a server and clients with minimal setup  
 - Automatic reverse SSH tunneling  
