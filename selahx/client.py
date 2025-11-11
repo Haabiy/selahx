@@ -1,8 +1,12 @@
 import os
 import socket
-import argparse
 from readchar import readkey, key
 from tabulate import tabulate
+
+class Colors:
+    BRIGHT_GREEN = "\033[92m"
+    GREEN = "\033[32m"
+    RESET = "\033[0m"
 
 def require_connection(func):
     """Decorator to ensure a client connection is established before running the function."""
@@ -30,12 +34,13 @@ class EC2Instance:
     def create_tmp(self, client_name, port):
         """Create or update the local /tmp/{user}.connected file."""
         identification = f"{client_name}.{port}"
+        connected_file = f"/tmp/{client_name}.connected"
         try:
-            if os.path.exists(self.connected_file):
-                os.remove(self.connected_file)  # Remove if file exists
-            with open(self.connected_file, "w") as f:
+            if os.path.exists(connected_file):
+                os.remove(connected_file)  # Remove if file exists
+            with open(connected_file, "w") as f:
                 f.write(identification)
-            print(f"Created or updated {self.connected_file} with '{self.client_id}'")
+            #print(f"{connected_file} with '{client_name}:{port}'")
         except Exception as e:
             print(f"Error creating or updating local file: {e}")
 
@@ -324,7 +329,7 @@ class EC2Instance:
                         "voice", "scrnrec", "sys", "clear", "exit", "terminate"]
         current_suggestion = -1
 
-        print("\033[96mselahX>\033[0m ", end="", flush=True)
+        print("\033[96mselahx>\033[0m ", end="", flush=True)
         
         while True:
             k = readkey()
@@ -342,9 +347,9 @@ class EC2Instance:
             elif k.isprintable():
                 command += k
             
-            print(f"\r\033[K\033[96mselahX>\033[0m {command}", end="", flush=True)
+            print(f"\r\033[K\033[96mselahx>\033[0m {command}", end="", flush=True)
 
-    def start(self):
+    def start_client(self):
         """Start the EC2Instance command loop."""
         self.display_home()
         last_command = None
@@ -457,13 +462,10 @@ class EC2Instance:
         if self.client_socket:
             self.client_socket.close()
 
-if __name__ == "__main__":
-    class Colors:
-        GREEN = '\033[92m'  # Bright green
-        GREEN2 = '\033[32m' # Regular green
-        RESET = '\033[0m'
+def client_cli(username: str, port: int):
+    """Run the selahx client terminal."""
 
-    logo = rf"""{Colors.GREEN2}
+    logo = rf"""{Colors.GREEN}
    _____      _       _    __   __
   / ____|    | |     | |   \ \ / /
  | (___   ___| | __ _| |__  \ V / 
@@ -472,17 +474,13 @@ if __name__ == "__main__":
  |_____/ \___|_|\__,_|_| |_/_/ \_\\
         
         TERMINAL - VERSION 1.0 
-
     {Colors.RESET}"""
+
     print(logo)
 
-    parser = argparse.ArgumentParser(description="Start socket server with reverse SSH tunnel.")
-    parser.add_argument("--port", required=True, help="Remote port of the server")
-    parser.add_argument("--username", required=True, help="username")
+    server_ip = "127.0.0.1"
+    client = EC2Instance(server_ip)
 
-    args = parser.parse_args()
-
-    SERVER_IP = "127.0.0.1" 
-    client = EC2Instance(SERVER_IP)
-    client.create_tmp(args.username, args.port)
-    client.start()
+    print(f"{Colors.BRIGHT_GREEN}Initializing connection for user '{username}' on port {port}...{Colors.RESET}")
+    client.create_tmp(username, port)
+    client.start_client()

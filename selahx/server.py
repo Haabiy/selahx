@@ -6,7 +6,6 @@ import mss
 import signal
 import socket
 import shutil
-import argparse
 import platform 
 import webbrowser
 import subprocess
@@ -621,12 +620,12 @@ class SocketServer:
         else:
             self.conn.send(str(f"{file_path} : 404").encode())
 
-    def start_reverse_tunnel(self, temp_key_file, remote_port, local_port, ssh_host):
+    def start_reverse_tunnel(self, key_file, remote_port, local_port, ssh_host):
         ssh_cmd = [
             "ssh",
             "-v",
             "-o", "StrictHostKeyChecking=accept-new",
-            "-i", temp_key_file,
+            "-i", key_file,
             "-N",
             "-R", f"0.0.0.0:{remote_port}:localhost:{local_port}",
             ssh_host
@@ -634,9 +633,9 @@ class SocketServer:
         subprocess.Popen(ssh_cmd)
         print(f"Reverse SSH tunnel started to {ssh_host}")
 
-    def run(self, temp_key_file, remote_port, local_port, ssh_host):
+    def start_server(self, key_file, remote_port, local_port, ssh_host):
         
-        self.start_reverse_tunnel(temp_key_file, remote_port, local_port, ssh_host)
+        self.start_reverse_tunnel(key_file, remote_port, local_port, ssh_host)
 
         while True:
             print("Waiting for a client connection...")
@@ -646,19 +645,6 @@ class SocketServer:
             except Exception as e:
                 print(f"Error in client handling: {e}")
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Start socket server with reverse SSH tunnel.")
-    parser.add_argument("--host", required=False, default="0.0.0.0", help="Path to temporary SSH private key")
-    parser.add_argument("--key-file", required=True, help="Path to temporary SSH private key")
-    parser.add_argument("--port", required=True, type=int, help="Local port of the server")
-    parser.add_argument("--ssh-host", required=True, help="SSH host (user@host)")
-
-    args = parser.parse_args()
-
-    server = SocketServer(args.host, args.port)
-    server.run(
-        temp_key_file=args.key_file,
-        remote_port=args.port,
-        local_port=args.port,
-        ssh_host=args.ssh_host
-    )
+def server_cli(host, port, key_file, ssh_host):
+    server = SocketServer(host, port)
+    server.start_server(key_file=key_file, remote_port=port, local_port=port, ssh_host=ssh_host)
