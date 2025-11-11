@@ -6,7 +6,7 @@
 
 ## Features
 
-![selahx logo](https://github.com/Haabiy/selahx/blob/main/Asset/selahx.png)
+![features](https://raw.githubusercontent.com/Haabiy/selahx/main/Asset/selahx.png)
 
 - Remotely access files on a local machine from another device
 - Transfer files from EC2 to local machine  
