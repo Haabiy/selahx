@@ -33,7 +33,7 @@ class EC2Instance:
 
     def create_tmp(self, client_name, port):
         """Create or update the local /tmp/{user}.connected file."""
-        identification = f"{client_name}.{port}"
+        identification = f"{client_name}:{port}"
         connected_file = f"/tmp/{client_name}.connected"
         try:
             if os.path.exists(connected_file):
