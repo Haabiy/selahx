@@ -5,7 +5,9 @@
 
 - Designed for use with the selahx_client package (https://pypi.org/project/selahx_client/), this enables remote access and management of files and have some control over a local machine from another device.
 
-- Run https://pypi.org/project/selahx_server/ on the target machine, and https://pypi.org/project/selahx_client/ on the machine you want to control it from. Follow each package’s guidelines for how to run it.
+- Run https://pypi.org/project/selahx_server/ on the target machine, and https://pypi.org/project/selahx_client/ on the machine you want to control it from. 
+
+- Follow each package’s guidelines for how to run it.
 
 - For educational purposes only.
 ---
