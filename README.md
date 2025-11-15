@@ -11,8 +11,9 @@
 
 ## Features
 
-overview: https://pypi.org/project/selahx_client/
+- overview: https://pypi.org/project/selahx_client/
 
+- github: https://github.com/Haabiy/selahx_client/
 ---
 
 ## Usage
@@ -50,6 +51,8 @@ slx --key-file key.pem --port 1221 --ssh-host ubuntu@ec2-xx-xx-xx-xx.compute-1.a
 ```bash
 slx --key-file key.pem --port 1221 --ssh-host ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com
 ```
+
+2. Run the client side via: https://pypi.org/project/selahx_client/  
 
 ## Requirements
 
