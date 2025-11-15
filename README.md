@@ -43,7 +43,7 @@ slx --key-file key.pem --port 1221 --ssh-host ubuntu@ec2-xx-xx-xx-xx.compute-1.a
 * `--port` — Local port for the server
 * `--ssh-host` — SSH host (e.g., `ubuntu@ec2-xx-xxx-xx-xxx.compute-1.amazonaws.com`)
 
-2. Run the client side via: https://pypi.org/project/selahx_client/  
+2. Run the client side via: https://pypi.org/project/selahx_client/
 
 ## Requirements
 
