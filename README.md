@@ -1,68 +1,45 @@
-# selahx
-Remote Access Tool — Fast and lightweight CLI experience.
-
+# selahx-server
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+- Remote Access Tool — Fast and lightweight CLI experience.
+
+- Designed for use with the selahx-client package (https://pypi.org/project/selahx-client/), this enables remote access and management of files and have some control over a local machine from another device.
+
+- Run https://pypi.org/project/selahx-server/ on the target machine, and https://pypi.org/project/selahx-client/ on the machine you want to control it from. Follow each package’s guidelines for how to run it.
+
 ---
 
 ## Features
 
-![features](https://raw.githubusercontent.com/Haabiy/selahx/main/Assets/selahx.png)
-
-- Remotely access files on a local machine from another device
-- Transfer files from EC2 to local machine  
-- Lightweight and dependency-managed with Poetry  
+overview: https://pypi.org/project/selahx-client/
 
 ---
 
 ## Usage
+
+### Help
+
+```bash
+selahx-server --help
+````
+
+![features](https://raw.githubusercontent.com/Haabiy/selahx-server/main/Assets/help.png)
+
+---
 
 ### Server
 
 Start the server on a specific host and port:
 
 ```bash
-selahx server --key-file key.pem --port 1221 --ssh-host ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com
+selahx-server --key-file key.pem --port 1221 --ssh-host ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com
 ````
 
 **Options:**
 
 * `--key-file` — Path to the SSH private key
 * `--port` — Local port for the server
-* `--ssh-host` — SSH host (e.g., `ubuntu@ec2-instance`)
-
----
-
-### Client
-
-Start a client and connect to the server:
-
-```bash
-selahx client --username user --port 1221
-```
-
-**Options:**
-
-* `--username` — Username for the client session
-* `--port` — Server port to connect to
-
----
-
-### Transfer files from EC2 to Local
-
-Start saving files:
-
-```bash
-selahx save --key-file key.pem --user ubuntu --host ec2-xx-xx-xx-xx.compute-1.amazonaws.com --dest ~/Downloads/test
-```
-
-**Options:**
-
-* `--key-file` — Path to the SSH private key
-* `--user` — `ubuntu` (user for `ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com`)
-* `--host` — EC2 host (everything after `@`)
-* `--dest` — Destination folder
-* `~/Downloads/test` — Example local destination path
+* `--ssh-host` — SSH host (e.g., `ubuntu@ec2-xx-xxx-xx-xxx.compute-1.amazonaws.com`)
 
 ---
 
@@ -71,22 +48,12 @@ selahx save --key-file key.pem --user ubuntu --host ec2-xx-xx-xx-xx.compute-1.am
 1. Launch the server on your EC2 instance:
 
 ```bash
-selahx server --key-file key.pem --port 1221 --ssh-host ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com
+selahx-server --key-file key.pem --port 1221 --ssh-host ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com
 ```
-
-2. Connect a client from your local machine:
-
-```bash
-selahx client --username user --port 1221
-```
-
-Once connected, a reverse SSH tunnel is automatically established.
-
----
 
 ## Requirements
 
-* Python 3.8+
+* Python 3.11+
 * Dependencies are managed via Poetry (see `pyproject.toml`)
 
 ---

@@ -1,20 +1,20 @@
 [tool.poetry]
 name = "selahx"
-version = "0.1.4"
-description = "Remote Access Tool — Fast and lightweight CLI experience."
+version = "0.1.0"
+description = “Remote Access Tool — a fast, lightweight CLI experience (for educational purposes only).”
 authors = ["Abiy <abiy.dema@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/Haabiy/selahx"
-repository = "https://github.com/Haabiy/selahx"
-documentation = "https://github.com/Haabiy/selahx#readme"
+homepage = "https://github.com/Haabiy/selahx-server"
+repository = "https://github.com/Haabiy/selahx-server"
+documentation = "https://github.com/Haabiy/selahx-server#readme"
 packages = [{ include = "selahx" }]
 include = [
     "Assets/selahx.png"
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<4.0"
+python = "^3.11"
 numpy = ">=2,<2.3.0"
 cffi = ">=2.0.0,<3.0.0"
 mouseinfo = ">=0.1.3,<0.2.0"
@@ -32,16 +32,14 @@ pyrect = ">=0.2.0,<0.3.0"
 pyscreeze = ">=1.0.1,<2.0.0"
 python3-xlib = ">=0.15,<0.16"
 pytweening = ">=1.2.0,<2.0.0"
-readchar = ">=4.2.1,<5.0.0"
 rubicon-objc = ">=0.5.2,<0.6.0"
 scipy = ">=1.16.3,<2.0.0"
 sounddevice = ">=0.5.3,<0.6.0"
-tabulate = ">=0.9.0,<0.10.0"
 argparse = ">=1.4.0,<2.0.0"
 typer = ">=0.20.0,<0.21.0"
 
 [tool.poetry.scripts]
-selahx = "selahx.cli:app"
+selahx-server = "selahx.cli:app"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
