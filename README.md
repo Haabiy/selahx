@@ -3,15 +3,15 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 - Remote Access Tool — Fast and lightweight CLI experience.
 
-- Designed for use with the selahx-client package (https://pypi.org/project/selahx-client/), this enables remote access and management of files and have some control over a local machine from another device.
+- Designed for use with the selahx_client package (https://pypi.org/project/selahx_client/), this enables remote access and management of files and have some control over a local machine from another device.
 
-- Run https://pypi.org/project/selahx_server/ on the target machine, and https://pypi.org/project/selahx-client/ on the machine you want to control it from. Follow each package’s guidelines for how to run it.
+- Run https://pypi.org/project/selahx_server/ on the target machine, and https://pypi.org/project/selahx_client/ on the machine you want to control it from. Follow each package’s guidelines for how to run it.
 
 ---
 
 ## Features
 
-overview: https://pypi.org/project/selahx-client/
+overview: https://pypi.org/project/selahx_client/
 
 ---
 
@@ -23,7 +23,7 @@ overview: https://pypi.org/project/selahx-client/
 slx --help
 ````
 
-![features](https://raw.githubusercontent.com/Haabiy/selahx_server/selahx/assets/help.png)
+![features](https://raw.githubusercontent.com/Haabiy/selahx_server/main/selahx/assets/help.png)
 
 ---
 
