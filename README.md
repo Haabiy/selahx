@@ -25,7 +25,7 @@
 slx --help
 ````
 
-![features](https://raw.githubusercontent.com/Haabiy/selahx_server/main/selahx/assets/help.png)
+![features](https://raw.githubusercontent.com/Haabiy/selahx_server/main/selahx/assets/slx_help.png)
 
 ---
 
