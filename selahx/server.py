@@ -19,11 +19,11 @@ class SocketServer:
         """Initialize the server and set up the listening socket."""
         
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Allow reusing the address
+        self.server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Allowing reusing the address
         self.server.bind((host, port))
         self.server.listen(1)
 
-        self.current_directory = os.path.expanduser("~/.")  # Set current directory
+        self.current_directory = os.path.expanduser("~/.")  # Setting current directory
         
         print(f"Server is listening on {host}:{port}")
         
@@ -214,8 +214,6 @@ class SocketServer:
             print(f"File '{file_name}' sent successfully.")
         except Exception as e:
             print(f"Error sending file: {e}")
-
-    # Add these methods to the SocketServer class
 
     def send_folder_to_instance(self, folder_name):
         """Send a folder and its contents to the client."""
