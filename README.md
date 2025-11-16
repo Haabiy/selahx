@@ -5,7 +5,7 @@
 
 - Designed for use with the selahx_client package (https://pypi.org/project/selahx_client), this enables remote access and management of files and have some control over a local machine from another device.
 
-- Run https://pypi.org/project/selahx_server on the target machine, and https://pypi.org/project/selahx_client on the machine you want to control it from. 
+- Run `selahx_server` on the target machine, and `selahx_client` on the machine you want to control it from. 
 
 - Follow each package’s guidelines for how to run it.
 
@@ -33,7 +33,9 @@ slx --help
 
 ### Server
 
-1. Start the server on a specific host and port:
+1. Install: `pip install selahx_server`
+
+2. Start the server on a specific host and port:
 
 ```bash
 slx --key-file key.pem --port 1221 --ssh-host ubuntu@ec2-xx-xx-xx-xx.compute-1.amazonaws.com
@@ -45,7 +47,7 @@ slx --key-file key.pem --port 1221 --ssh-host ubuntu@ec2-xx-xx-xx-xx.compute-1.a
 * `--port` — Local port for the server
 * `--ssh-host` — SSH host (e.g., `ubuntu@ec2-xx-xxx-xx-xxx.compute-1.amazonaws.com`)
 
-2. Run the client side via: https://pypi.org/project/selahx_client
+3. Run the client side via: https://pypi.org/project/selahx_client
 
 
 ### Resolve common issues: 
